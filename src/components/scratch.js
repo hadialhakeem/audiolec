@@ -7,8 +7,8 @@ const client = new speech.SpeechClient();
 
 
 let encoding;
-const fileType;
-const fileName;
+var fileType;
+var fileName;
 
 if(fileType == '.mp3'){
     encoding = 'MP3'
