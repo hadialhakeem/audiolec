@@ -15,8 +15,8 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <Paragraph>
-                description this  is poggesr
+                <Paragraph >
+                description this  is pogger
                 dasgagladsg 
                 </Paragraph>
             </div>
