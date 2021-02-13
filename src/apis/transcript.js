@@ -47,3 +47,4 @@ const confidence =  response.results
     .map(result => result.alternatives[0].confidence)
     .join('\n');
 console.log(`Transcription: ${transcription}`);
+
