@@ -1,6 +1,9 @@
 import React from 'react';
+import { Typography } from 'antd';
 
-class Title extends React.Component {
+const { Title } = Typography;
+
+class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -9,10 +12,10 @@ class Title extends React.Component {
     render() {
         return (
             <div>
-                Title
+                <Title>AudioLec</Title>
             </div>
         )
     }
 }
 
-export default Title;
+export default Header;
