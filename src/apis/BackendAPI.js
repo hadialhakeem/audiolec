@@ -22,8 +22,8 @@ class BackendAPI {
         })
     };
 
-    static generateQuiz = (title) => {
-        return BackendAPI.post('generate', {title: title})
+    static transcribe = (file, fileName) => {
+        return BackendAPI.post('transcribe', {file: file, file_name: fileName})
     };
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Result, Button, Spin, Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import BackendAPI from "../apis/BackendAPI";
 
 const { Dragger } = Upload;
 
@@ -10,12 +11,25 @@ class Main extends React.Component {
         this.state = {
             audioUrl: null,
             loading: null,
+            transcript: null,
         };
     }
 
     handleFileUpload = ({file, filename}) => {
         // https://github.com/react-component/upload#customrequest
-
+        this.setState({loading: true})
+        BackendAPI
+            .transcribe(file, filename)
+            .then(res => {
+                const { transcript } = res.data;
+                this.setState({transcript})
+            })
+            .catch(err => {
+                console.log({err})
+            })
+            .finally(()=>{
+                this.setState({loading: null})
+            })
     }
 
     render() {
