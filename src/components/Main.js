@@ -16,8 +16,7 @@ class Main extends React.Component {
         return (
             <div>
                 <Paragraph >
-                description this  is pogger
-                dasgagladsg 
+                Welcome to AudioLec! Do you want to read what you are listening to? If so, go ahead and upload your audio file!
                 </Paragraph>
             </div>
         )
