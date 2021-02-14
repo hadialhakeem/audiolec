@@ -1,8 +1,10 @@
 // Imports the Google Cloud client library
+// Imports the Google Cloud client library
 const speech = require('@google-cloud/speech');
 
 // Creates a client
 const client = new speech.SpeechClient();
+
 
 let encoding;
 var fileType;
@@ -42,9 +44,7 @@ const [response] = await operation.promise();
 const transcription = response.results
     .map(result => result.alternatives[0].transcript)
     .join('\n');
-
 const confidence =  response.results
     .map(result => result.alternatives[0].confidence)
     .join('\n');
 console.log(`Transcription: ${transcription}`);
-
