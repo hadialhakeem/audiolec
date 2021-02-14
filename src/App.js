@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import './App.css';
 import Main from "./components/Main";
-import Header from "./components/Title";
+import Header from "./components/Header";
 import Steps from "./components/Steps";
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
