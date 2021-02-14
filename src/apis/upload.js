@@ -7,9 +7,10 @@ const {Storage} = require('@google-cloud/storage');
 // Creates a client
 const storage = new Storage();
 
-async function uploadFile(filename) {
+export default async function uploadFile(filename) {
     // Uploads a local file to the bucket
-    await storage.bucket(bucketName).upload(filename, {
+    console.log(`${filename} uploaded to ${bucketName}.`);
+    return await storage.bucket(bucketName).upload(filename, {
         // By setting the option `destination`, you can change the name of the
         destination: filename,
         // object you are uploading to a bucket.
@@ -21,7 +22,7 @@ async function uploadFile(filename) {
         },
     });
 
-    console.log(`${filename} uploaded to ${bucketName}.`);
+
 }
 
-uploadFile().catch(console.error);
+// uploadFile().catch(console.error);
