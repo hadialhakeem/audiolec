@@ -49,5 +49,7 @@ async function uploadFile(filename) {
     return uploadedFileName;
 }
 
+/*
 uploadFile('test-lec.mp3')
    .catch(console.error);
+ */
