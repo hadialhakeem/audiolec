@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from 'antd';
 
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 class Header extends React.Component {
     constructor(props) {
@@ -13,6 +13,9 @@ class Header extends React.Component {
         return (
             <div>
                 <Title>AudioLec</Title>
+                <Paragraph >
+                    Welcome to AudioLec! Do you want to read what you are listening to? If so, go ahead and upload your audio file!
+                </Paragraph>
             </div>
         )
     }
