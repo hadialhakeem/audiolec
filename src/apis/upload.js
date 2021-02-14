@@ -7,12 +7,35 @@ const {Storage} = require('@google-cloud/storage');
 // Creates a client
 const storage = new Storage();
 
-export default async function uploadFile(filename) {
+function makeid(length) {
+    let result           = '';
+    let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+function makeName(fileName) {
+    let newFileName = "";
+    let fileNameList = fileName.split('.');
+    for (let i = 0; i < fileNameList.length-1; ++i) {
+        newFileName += fileNameList[i];
+    }
+    newFileName += '-' + makeid(5);
+    newFileName += '.' + fileNameList[fileNameList.length-1];
+
+    return newFileName;
+}
+
+async function uploadFile(filename) {
     // Uploads a local file to the bucket
-    console.log(`${filename} uploaded to ${bucketName}.`);
-    return await storage.bucket(bucketName).upload(filename, {
+    let uploadedFileName = makeName(filename)
+
+    await storage.bucket(bucketName).upload(filename, {
         // By setting the option `destination`, you can change the name of the
-        destination: filename,
+        destination: uploadedFileName,
         // object you are uploading to a bucket.
         metadata: {
             // Enable long-lived HTTP caching headers
@@ -22,7 +45,9 @@ export default async function uploadFile(filename) {
         },
     });
 
-
+    console.log(`${filename} uploaded to ${bucketName}.`);
+    return uploadedFileName;
 }
 
-// uploadFile().catch(console.error);
+uploadFile('test-lec.mp3')
+   .catch(console.error);
