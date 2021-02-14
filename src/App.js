@@ -6,6 +6,9 @@ import Header from "./components/Title";
 import Steps from "./components/Steps";
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
+import { Result} from 'antd';
+
 
 const { Dragger } = Upload;
 
@@ -41,7 +44,27 @@ const App = () => (
             // </p>
         </Dragger>
         </div>
-        <Steps />
+
+        <div className="example2">
+        <Result
+            status="success"
+            title="Your transcript is ready!"
+            subTitle="Thank you for using AudioLec."
+            extra={[
+                <Button type="primary" key="download">
+                    Download
+                </Button>,
+                <Button key="transcribe">Transcribe Again</Button>,
+            ]}
+        />
+        </div>
+        <div className="example">
+            <Spin size="large"  />
+            <div className="spinnerText">
+                Transcribing your file...
+            </div>
+        </div>
+
         
     </div>
 );
