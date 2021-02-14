@@ -11,4 +11,3 @@ function downloadString(text) {
     setTimeout(function() { URL.revokeObjectURL(a.href); }, 1500);
 };
 
-

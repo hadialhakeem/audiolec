@@ -2,8 +2,6 @@ import React from 'react';
 import { Result, Button, Spin, Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import uploadFile from "../apis/upload";
-
 const { Dragger } = Upload;
 
 class Main extends React.Component {
@@ -17,7 +15,6 @@ class Main extends React.Component {
 
     handleFileUpload = ({file, filename}) => {
         // https://github.com/react-component/upload#customrequest
-
 
     }
 
