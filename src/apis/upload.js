@@ -1,5 +1,4 @@
 const bucketName = 'audio-storage-111';
-const filename = 'Local file to upload, e.g. ./local/path/to/file.txt';
 const destination = 'Destination object name, e.g. file.txt';
 
 // Imports the Google Cloud client library
@@ -8,11 +7,11 @@ const {Storage} = require('@google-cloud/storage');
 // Creates a client
 const storage = new Storage();
 
-async function uploadFile() {
+async function uploadFile(filename) {
     // Uploads a local file to the bucket
     await storage.bucket(bucketName).upload(filename, {
         // By setting the option `destination`, you can change the name of the
-        destination: destination,
+        destination: filename,
         // object you are uploading to a bucket.
         metadata: {
             // Enable long-lived HTTP caching headers
