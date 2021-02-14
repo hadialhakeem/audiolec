@@ -15,6 +15,7 @@ async function asyncRecognize(
             encoding: encoding,
             sampleRateHertz: sampleRateHertz,
             languageCode: languageCode,
+            enableAutomaticPunctuation: true,
         };
 
     /**
@@ -60,6 +61,7 @@ async function asyncRecognize(
         .join('\n');
 
     console.log(confidence)
+    return response;
 }
 
 /*
